@@ -1,0 +1,1 @@
+export const baseUrl = "https://imfo-api.herokuapp.com/v1";

@@ -1,6 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {signIn} from '../../store/actions/authAction'
 
 class Signin extends Component {
+
+    state = {
+        email: "",
+        password: ""
+    }
+
+    handleChange = (e) => {
+        this.setState({
+          [e.target.id] : e.target.value
+        })
+        
+       
+      }
+    
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        this.props.signIn(this.state);
+        
+      }
   render() {
     return (
         <main className="">
@@ -12,17 +34,17 @@ class Signin extends Component {
                             <div className="header content t-right">
                                 <h2>Login</h2>
                             </div>
-                            <form action="#" method="post" className="local-form content-box"> 
+                            <form onSubmit={this.handleSubmit} className="local-form content-box"> 
                                 <div className="form-group">
-                                    <label className="control-label" htmlFor="inputUsername2">Username</label>
+                                    <label className="control-label" htmlFor="email">Username</label>
                                     <div className="">
-                                        <input type="text" name="username"  className="form-control" id="inputUsername2" placeholder="Username" />                      
+                                        <input type="email" className="form-control" id="email" placeholder="Email" onChange={this.handleChange} />                      
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <label className="control-label" htmlFor="inputPassword1">Password</label>
+                                    <label className="control-label" htmlFor="password">Password</label>
                                     <div className="controls">
-                                        <input type="password" name="password"  className="form-control" id="inputPassword1" placeholder="Password" />                      
+                                        <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange} />                      
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -51,4 +73,10 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+const mapDispatchToProp = (dispatch) => {
+    return {
+        signIn: (credential) => dispatch(signIn(credential))
+    }
+}
+
+export default connect(null,mapDispatchToProp)(Signin);

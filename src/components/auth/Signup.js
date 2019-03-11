@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import Signin from './Signin';
 
 class Signup extends Component {
   render() {
     return (
+
+        <main className="">
+        <section className="section container container-palette">
+            <div className="container">
         <div className="row">
         <div className="col-sm-6 col-centered">
         <div className="widget widget-styles" id="form2">
@@ -63,7 +66,11 @@ class Signup extends Component {
         </div>
     </div>
     </div>)
-  }
+        </div>
+        </section>
+    </main>
+    )
+    }
 }
 
 export default Signup;

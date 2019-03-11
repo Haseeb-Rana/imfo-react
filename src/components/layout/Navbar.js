@@ -9,10 +9,10 @@ class Navbar extends Component {
                 <div className="container">
                     <div className="clearfix">
                         <div className="pull-left logo"><Link to='/'>IMFO</Link></div>      
-                        <div className="top-bar-btns">
+                        <div className="top-bar-btns ">
                             <ul className="nav-items">
-                                <li><a href="#" data-toggle="modal" data-target="#login-modal" className="btn btn-custom-default">Log In</a></li>
-                                <li><a href="page_edit.html" className="btn btn-custom-primary">Add Listing</a></li>
+                                <li><Link className="btn btn-custom-primary" to='/signin'>Login</Link></li>
+                                <li><Link className="btn btn-custom-primary" to='/signup'>Signup</Link></li>
                             </ul>
                             <button type="button" className="navbar-toggle" id="navigation-toogle">
                                 <span className="sr-only">Toggle navigation</span>
@@ -21,6 +21,7 @@ class Navbar extends Component {
                                 <span className="icon-bar"></span>
                             </button>
                         </div>
+                        
                         <div className="pull-right navigation-wrapper">
                             <a href="" className="button-close"></a> 
                             <div className="logo"><a href="#">Local</a></div>
