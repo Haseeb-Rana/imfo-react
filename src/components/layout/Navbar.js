@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class Navbar extends Component {
   render() {
@@ -7,8 +8,7 @@ class Navbar extends Component {
             <div className="container container-palette top-bar overflow top-bar-black t-overflow affix-menu">
                 <div className="container">
                     <div className="clearfix">
-                        <div className="pull-left logo"><a href="index.html">IMFO</a></div>
-                        
+                        <div className="pull-left logo"><Link to='/'>IMFO</Link></div>      
                         <div className="top-bar-btns">
                             <ul className="nav-items">
                                 <li><a href="#" data-toggle="modal" data-target="#login-modal" className="btn btn-custom-default">Log In</a></li>
