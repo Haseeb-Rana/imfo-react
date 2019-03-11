@@ -8,29 +8,7 @@ class Navbar extends Component {
                 <div className="container">
                     <div className="clearfix">
                         <div className="pull-left logo"><a href="index.html">IMFO</a></div>
-                        <div className="lang-manu dropdown pull-right">
-                            <button className="btn btn-secondary" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span>EN</span>
-                                <span className="caret"></span>
-                            </button>
-                            <ul className="dropdown-menu">
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        <img src="assets/img/flags/en.png" alt="" className="" />EN
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        <img src="assets/img/flags/hr.png" alt="" className="" />HR
-                                    </a>
-                                </li>                                
-                                <li>
-                                    <a className="dropdown-item rtl" href="?test=rtl">
-                                        <img src="assets/img/flags/ae.png" alt="" className="" />AR
-                                    </a>
-                                </li>                              
-                            </ul>
-                        </div>
+                        
                         <div className="top-bar-btns">
                             <ul className="nav-items">
                                 <li><a href="#" data-toggle="modal" data-target="#login-modal" className="btn btn-custom-default">Log In</a></li>
@@ -126,23 +104,6 @@ class Navbar extends Component {
                                     </ul>
                                 </li>
                             </ul>
-                            <ul className="lang-menu-mobile">
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        <img src="assets/img/flags/en.png" alt="" className="" />EN
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        <img src="assets/img/flags/hr.png" alt="" className="" />HR
-                                    </a>
-                                </li>                                
-                                <li>
-                                    <a className="dropdown-item rtl" href="?test=rtl">
-                                        <img src="assets/img/flags/ae.png" alt="" className="" />AR
-                                    </a>
-                                </li>                              
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -151,5 +112,4 @@ class Navbar extends Component {
     )
   }
 }
-
 export default Navbar;
