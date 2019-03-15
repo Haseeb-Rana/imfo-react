@@ -8,20 +8,14 @@ class Signin extends Component {
         email: "",
         password: ""
     }
-
     handleChange = (e) => {
         this.setState({
           [e.target.id] : e.target.value
-        })
-        
-       
-      }
+        })}
     
       handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        this.props.signIn(this.state);
-        
+        this.props.signIn(this.state).then(() => this.props.history.push("/"))     
       }
   render() {
     return (
@@ -59,7 +53,7 @@ class Signin extends Component {
                                     <div className="controls">
                                         <button type="submit" className="btn btn-danger">Sign in</button>
                                         <button type="reset" className="btn btn-default">Reset</button>
-                                        <a href="#"><em>Forget password?</em></a>
+                                        <button ><em>Forget password?</em></button> 
                                     </div>
                                 </div>
                             </form>
@@ -75,7 +69,7 @@ class Signin extends Component {
 
 const mapDispatchToProp = (dispatch) => {
     return {
-        signIn: (credential) => dispatch(signIn(credential))
+        signIn: (credentials) => dispatch(signIn(credentials))
     }
 }
 

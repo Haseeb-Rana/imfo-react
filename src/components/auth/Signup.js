@@ -1,61 +1,57 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {signUp} from '../../store/actions/authAction'
 
 class Signup extends Component {
+    state = {
+        email: "",
+        password: "",
+        fullName: ""
+    }
+
+    
+    handleChange = (e) => {
+        this.setState({
+          [e.target.id] : e.target.value
+        })}
+    
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);   
+        this.props.signUp(this.state).then(() => this.props.history.push("/"));
+         
+      }
+
   render() {
     return (
 
-        <main className="">
+        
         <section className="section container container-palette">
             <div className="container">
         <div className="row">
-        <div className="col-sm-6 col-centered">
-        <div className="widget widget-styles" id="form2">
-            <div className="header content t-left">
+        <div className="col-md-6 col-centered">
                 <h2>Register</h2>
             </div>
-            <form action="#" method="post" className="local-form content-box">                                                 
+            <form className="local-form content-box" onSubmit={this.handleSubmit}>                                                 
                 <div className="form-group">
                     <label className="control-label">First and last name</label>
                     <div className="controls">
-                        <input type="text" name="name_surname" value="" className="form-control" id="inputNameSurname" placeholder="First and last name" />                                  
+                        <input type="text" name="fullName" className="form-control" id="fullName" placeholder="First and last name" onChange={this.handleChange} />                                  
                     </div>
                 </div>
-                <div className="form-group">
-                    <label className="control-label">Username</label>
-                    <div className="controls">
-                        <input type="text" name="username" value="" className="form-control" id="inputUsername" placeholder="Username" />                                  
-                    </div>
-                </div>
+    
                 <div className="form-group">
                     <label className="control-label">Email</label>
                     <div className="controls">
-                        <input type="text" name="mail" value="" className="form-control" id="inputMail" placeholder="Email" />                                  
+                        <input type="text" name="email"  className="form-control" id="email" placeholder="Email" onChange={this.handleChange} />                                  
                     </div>
                 </div>
                 <div className="form-group">
-                    <label className="control-label" for="inputPassword2">Password</label>
+                    <label className="control-label" for="password">Password</label>
                     <div className="controls">
-                        <input type="password" name="password" value="" className="form-control" id="inputPassword2" placeholder="Password" autocomplete="off" />                                  
+                        <input type="password" name="password"  className="form-control" id="password" placeholder="Password" autocomplete="off" onChange={this.handleChange} />                                  
                     </div>
-                </div>
-                <div className="form-group">
-                    <label className="control-label">Confirm password</label>
-                    <div className="controls">
-                        <input type="password" name="password_confirm" value="" className="form-control" id="inputPasswordConfirm" placeholder="Confirm password" autocomplete="off" />                                  
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label className="control-label">Address</label>
-                    <div className="controls">
-                        <textarea name="address" cols="40" rows="3" placeholder="Address" className="form-control"></textarea>                                  
-                    </div>
-                </div>          
-                <div className="form-group">
-                    <label className="control-label">Phone</label>
-                    <div className="controls">
-                        <input type="text" name="phone" value="" className="form-control" id="inputPhone" placeholder="Phone" />                                  
-                    </div>
-                </div>
+                </div>   
                 <div className="form-group">
                     <div className="controls">
                         <button type="submit" className="btn btn-danger">Register</button>
@@ -63,14 +59,18 @@ class Signup extends Component {
                     </div>
                 </div>
             </form>
+        
         </div>
-    </div>
-    </div>)
-        </div>
-        </section>
-    </main>
+    </div>   
+</section>
     )
     }
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (user) => dispatch(signUp(user))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(Signup);

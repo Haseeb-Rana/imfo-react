@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react';
+import {connect} from 'react-redux';
 
-class Dashboard extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
+
+
+const Dashboard =({isAuthenticated}) => (
+     
+       <p>This is Dashboard</p>
+)
+
+const mapStateToProp = (state) => {
+  console.log("this is state")
+  console.log(state)
+  return {
+      isAuthenticated: !! state.auth.token
   }
 }
 
-export default Dashboard;
+export default connect(mapStateToProp) (Dashboard);
